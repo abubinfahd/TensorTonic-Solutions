@@ -1,6 +1,4 @@
-# Linear Regression Closed Form (Normal Equation) — Bengali Guide
-
-## ভূমিকা
+# Linear Regression Closed Form (Normal Equation)
 
 Linear Regression হলো সবচেয়ে ক্লাসিক এবং বেসিক Machine Learning অ্যালগরিদমগুলোর একটি। এর লক্ষ্য হলো এমন একটি সরলরেখা (line) বা hyperplane খুঁজে বের করা যা ডেটা পয়েন্টগুলোর সাথে সবচেয়ে ভালোভাবে ফিট করে।
 
