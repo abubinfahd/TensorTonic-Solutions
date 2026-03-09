@@ -135,8 +135,8 @@ $$
 $$
 X =
 \begin{bmatrix}
-1 \
-2 \
+1 \\
+2 \\
 3
 \end{bmatrix}
 $$
@@ -144,8 +144,8 @@ $$
 $$
 y =
 \begin{bmatrix}
-2 \
-4 \
+2 \\
+4 \\
 6
 \end{bmatrix}
 $$
@@ -179,8 +179,8 @@ $$
 $$
 X =
 \begin{bmatrix}
-1 & 1 \
-1 & 2 \
+1 & 1 \\
+1 & 2 \\
 1 & 3
 \end{bmatrix}
 $$
@@ -190,8 +190,8 @@ Target:
 $$
 y =
 \begin{bmatrix}
-3 \
-5 \
+3 \\
+5 \\
 7
 \end{bmatrix}
 $$
@@ -209,7 +209,7 @@ Result:
 $$
 w =
 \begin{bmatrix}
-1 \
+1 \\
 2
 \end{bmatrix}
 $$
@@ -229,8 +229,8 @@ $$
 $$
 X =
 \begin{bmatrix}
-1 & 1 \
-1 & 2 \
+1 & 1 \\
+1 & 2 \\
 1 & 3
 \end{bmatrix}
 $$
@@ -238,8 +238,8 @@ $$
 $$
 y =
 \begin{bmatrix}
-1 \
-2 \
+1 \\
+2 \\
 2
 \end{bmatrix}
 $$
@@ -249,7 +249,7 @@ $$
 $$
 X^T X =
 \begin{bmatrix}
-3 & 6 \
+3 & 6 \\
 6 & 14
 \end{bmatrix}
 $$
@@ -259,7 +259,7 @@ $$
 $$
 X^T y =
 \begin{bmatrix}
-5 \
+5 \\
 11
 \end{bmatrix}
 $$
@@ -270,7 +270,7 @@ $$
 (X^T X)^{-1} =
 \frac{1}{6}
 \begin{bmatrix}
-14 & -6 \
+14 & -6 \\
 -6 & 3
 \end{bmatrix}
 $$
@@ -284,7 +284,7 @@ $$
 $$
 w =
 \begin{bmatrix}
-2/3 \
+2/3 \\
 1/2
 \end{bmatrix}
 $$
