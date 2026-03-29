@@ -2,11 +2,6 @@
 
 > Principal Component Analysis from scratch — implemented with numerically stable eigendecomposition.
 
-[![Python](https://img.shields.io/badge/Python-3.8%2B-blue?logo=python)](https://python.org)
-[![NumPy](https://img.shields.io/badge/NumPy-1.21%2B-013243?logo=numpy)](https://numpy.org)
-[![Difficulty](https://img.shields.io/badge/Difficulty-Hard-red)]()
-[![Category](https://img.shields.io/badge/Category-Classic%20ML-purple)]()
-
 ---
 
 ## 📋 Table of Contents
