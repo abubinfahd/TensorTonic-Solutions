@@ -2,12 +2,6 @@
 
 > A complete walkthrough of Principal Component Analysis: from raw data to final projection, with every calculation shown explicitly.
 
-[![Math](https://img.shields.io/badge/Math-Linear%20Algebra-blue)]()
-[![Python](https://img.shields.io/badge/Python-3.8%2B-blue?logo=python)](https://python.org)
-[![NumPy](https://img.shields.io/badge/NumPy-1.21%2B-013243?logo=numpy)](https://numpy.org)
-[![Difficulty](https://img.shields.io/badge/Difficulty-Hard-red)]()
-[![Category](https://img.shields.io/badge/Category-Classic%20ML-purple)]()
-
 ---
 
 ## 📋 Table of Contents
@@ -74,7 +68,15 @@ Subtract the mean from every row so the data is zero-centered around the origin:
 
 $$X_c = X - \mu$$
 
-$$X_c = \begin{bmatrix} 2-2.8 & 0-1.4 \\ 0-2.8 & 1-1.4 \\ 3-2.8 & 1-1.4 \\ 4-2.8 & 2-1.4 \\ 5-2.8 & 3-1.4 \end{bmatrix} = \begin{bmatrix} -0.8 & -1.4 \\ -2.8 & -0.4 \\ 0.2 & -0.4 \\ 1.2 & 0.6 \\ 2.2 & 1.6 \end{bmatrix}$$
+$$X_c = \begin{bmatrix} 2-2.8 & 0-1.4 \\ 
+0-2.8 & 1-1.4 \\ 
+3-2.8 & 1-1.4 \\ 
+4-2.8 & 2-1.4 \\ 
+5-2.8 & 3-1.4 \end{bmatrix} = \begin{bmatrix} -0.8 & -1.4 \\ 
+-2.8 & -0.4 \\ 
+0.2 & -0.4 \\ 
+1.2 & 0.6 \\ 
+2.2 & 1.6 \end{bmatrix}$$
 
 > **Why center?** PCA measures variance *around the mean*. Without centering, the origin biases the covariance calculation.
 
@@ -88,7 +90,8 @@ $$C = \frac{1}{n-1}\ X_c^T X_c$$
 
 First, write out $X_c^T$:
 
-$$X_c^T = \begin{bmatrix} -0.8 & -2.8 & 0.2 & 1.2 & 2.2 \\ -1.4 & -0.4 & -0.4 & 0.6 & 1.6 \end{bmatrix}$$
+$$X_c^T = \begin{bmatrix} -0.8 & -2.8 & 0.2 & 1.2 & 2.2 \\ 
+-1.4 & -0.4 & -0.4 & 0.6 & 1.6 \end{bmatrix}$$
 
 Now compute each entry of $X_c^T X_c$ explicitly:
 
@@ -109,11 +112,13 @@ $$= 1.96 + 0.16 + 0.16 + 0.36 + 2.56 = 5.20$$
 
 So:
 
-$$X_c^T X_c = \begin{bmatrix} 14.8 & 6.4 \\ 6.4 & 5.2 \end{bmatrix}$$
+$$X_c^T X_c = \begin{bmatrix} 14.8 & 6.4 \\ 
+6.4 & 5.2 \end{bmatrix}$$
 
 Divide by $n - 1 = 4$:
 
-$$\boxed{C = \begin{bmatrix} 3.7 & 1.6 \\ 1.6 & 1.3 \end{bmatrix}}$$
+$$\boxed{C = \begin{bmatrix} 3.7 & 1.6 \\ 
+1.6 & 1.3 \end{bmatrix}}$$
 
 > **Interpretation:** The diagonal entries (3.7 and 1.3) are the individual variances of each feature. The off-diagonal entry (1.6) shows they are positively correlated — when one goes up, so does the other.
 
@@ -125,7 +130,8 @@ Eigenvalues tell us **how much variance** lies along each principal direction. W
 
 $$\det(C - \lambda I) = 0$$
 
-$$\begin{vmatrix} 3.7 - \lambda & 1.6 \\ 1.6 & 1.3 - \lambda \end{vmatrix} = 0$$
+$$\begin{vmatrix} 3.7 - \lambda & 1.6 \\ 
+1.6 & 1.3 - \lambda \end{vmatrix} = 0$$
 
 Expand the determinant:
 
@@ -161,7 +167,9 @@ The eigenvector for $\lambda_1 = 4.5$ gives the **direction of maximum variance*
 
 $$(C - 4.5I)\,\mathbf{v} = \mathbf{0}$$
 
-$$\begin{bmatrix} 3.7 - 4.5 & 1.6 \\ 1.6 & 1.3 - 4.5 \end{bmatrix} = \begin{bmatrix} -0.8 & 1.6 \\ 1.6 & -3.2 \end{bmatrix}$$
+$$\begin{bmatrix} 3.7 - 4.5 & 1.6 \\ 
+1.6 & 1.3 - 4.5 \end{bmatrix} = \begin{bmatrix} -0.8 & 1.6 \\ 
+1.6 & -3.2 \end{bmatrix}$$
 
 Both rows encode the same equation (the matrix is rank-deficient at an eigenvalue by design). Take the first row:
 
@@ -171,7 +179,8 @@ $$\Rightarrow\quad y = 0.5x$$
 
 So the eigenvector points in the direction:
 
-$$\mathbf{v} \propto \begin{bmatrix} 1 \\ 0.5 \end{bmatrix}$$
+$$\mathbf{v} \propto \begin{bmatrix} 1 
+\\ 0.5 \end{bmatrix}$$
 
 > **Intuition:** For every 1 unit along Feature 1, you move 0.5 units along Feature 2 on this principal axis — matching the positive correlation seen in the covariance matrix.
 
@@ -183,7 +192,9 @@ Eigenvectors must be unit length (norm = 1) so projections are true orthogonal d
 
 $$\|\mathbf{v}\| = \sqrt{1^2 + 0.5^2} = \sqrt{1 + 0.25} = \sqrt{1.25} \approx 1.118$$
 
-$$\mathbf{v} = \frac{1}{\sqrt{1.25}} \begin{bmatrix} 1 \\ 0.5 \end{bmatrix} \approx \begin{bmatrix} 0.894 \\ 0.447 \end{bmatrix}$$
+$$\mathbf{v} = \frac{1}{\sqrt{1.25}} \begin{bmatrix} 1 \\ 
+0.5 \end{bmatrix} \approx \begin{bmatrix} 0.894 \\ 
+0.447 \end{bmatrix}$$
 
 **Verify unit length:** $0.894^2 + 0.447^2 \approx 0.799 + 0.200 = 0.999 \approx 1$ ✓
 
@@ -205,7 +216,11 @@ $$X_{\text{proj}} = X_c \cdot \mathbf{v}$$
 | 4   | $[\ 1.2,\ \ 0.6]$ | $(\ 1.2)(0.894) + (\ 0.6)(0.447)$             | $+1.341$ |
 | 5   | $[\ 2.2,\ \ 1.6]$ | $(\ 2.2)(0.894) + (\ 1.6)(0.447)$             | $+2.682$ |
 
-$$\boxed{X_{\text{proj}} = \begin{bmatrix} -1.341 \\ -2.682 \\ 0.000 \\ 1.341 \\ 2.682 \end{bmatrix}}$$
+$$\boxed{X_{\text{proj}} = \begin{bmatrix} -1.341 \\ 
+-2.682 \\ 
+0.000 \\ 
+1.341 \\ 
+2.682 \end{bmatrix}}$$
 
 The 5 original 2D points are now 5 scalar values along the most informative axis — **dimensionality reduced from 2D → 1D**, retaining 90% of the variance.
 
